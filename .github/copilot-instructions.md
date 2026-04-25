@@ -2,12 +2,19 @@
 
 ## Development Checklist
 **Mandatory before committing or deploying:**
-- [ ] **Lint**: Run `dotnet format` to check and fix code formatting
+- [ ] **Lint**: Run `dotnet build SocOps/SocOps.csproj` to check for code analysis warnings/errors
 - [ ] **Build**: Run `dotnet build SocOps/SocOps.csproj` to ensure successful compilation
 - [ ] **Test**: Run `dotnet test` (when unit tests are implemented)
 
 ## Code Style
 Follow C# and Blazor best practices with nullable reference types and implicit usings enabled. Reference existing components in `Components/` for Blazor patterns and naming conventions.
+
+Linting rules enforced via .editorconfig and Microsoft.CodeAnalysis.NetAnalyzers:
+- Unused variables (CS0168, CS0219) treated as errors
+- Async methods without await (CS1998) treated as errors
+- Accessibility modifiers required on all members
+- Readonly fields preferred
+- Use 'var' when type is apparent
 
 ## Architecture
 Blazor WebAssembly application implementing a social bingo game. Core architecture includes:
